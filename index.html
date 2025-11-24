@@ -1,0 +1,2874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Brainmoto - India's Leading Neuro-Motor Learning Readiness Program. Transform learning outcomes through scientifically-proven motor-cognitive development.">
+    <title>Brainmoto - Building Learning Readiness | Transform Learning Outcomes</title>
+    
+    <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== VARIABLES ===== */
+        :root {
+            --primary-purple: #4e3f8a;
+            --dark-purple: #362d5f;
+            --light-purple: #7d6fb2;
+            --bg-lavender: #f2efff;
+            --light-lavender: #f9f7ff;
+            --accent-yellow: #f5d527;
+            --bright-yellow: #f7e04c;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #666666;
+            --dark-gray: #333333;
+            --success-green: #4caf50;
+            --info-blue: #2196f3;
+            --alert-red: #ff5252;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--medium-gray);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        h1 { font-size: 3rem; font-weight: 900; }
+        h2 { font-size: 2.25rem; font-weight: 800; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.3rem; }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.12);
+        }
+        
+        .nav-container {
+            max-width: 1370px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .logo img {
+            height: 3.25rem;
+            width: auto;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+        
+        .nav-menu a {
+            color: var(--dark-gray);
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-purple);
+        }
+        
+        .nav-cta {
+            background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+            color: var(--white) !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(78, 63, 138, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(78, 63, 138, 0.5);
+        }
+        
+        .phone-link {
+            color: var(--primary-purple);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--primary-purple);
+            cursor: pointer;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.15rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(78, 63, 138, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(78, 63, 138, 0.5);
+        }
+        
+        .btn-secondary {
+            background: var(--accent-yellow);
+            color: var(--primary-purple);
+            box-shadow: 0 6px 20px rgba(245, 213, 39, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bright-yellow);
+            transform: translateY(-3px) scale(1.02);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--light-purple);
+            color: var(--light-purple);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-purple);
+            color: var(--white);
+        }
+        
+        /* ===== HERO ===== */
+        .hero {
+            margin-top: 90px;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--light-lavender) 0%, var(--white) 50%, var(--bg-lavender) 100%);
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--primary-purple);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content h1 {
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .highlight {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: var(--accent-yellow);
+            opacity: 0.4;
+            z-index: -1;
+        }
+        
+        .subheadline {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+        
+        .trust-bar {
+            display: flex;
+            gap: 2.5rem;
+            padding-top: 2.5rem;
+            border-top: 2px solid rgba(78, 63, 138, 0.15);
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .trust-icon {
+            color: var(--success-green);
+            font-size: 1.4rem;
+        }
+        
+        /* ===== ABOUT ===== */
+        .about-section {
+            position: relative;
+            background: linear-gradient(180deg, rgba(78, 63, 138, 0.05) 0%, rgba(255, 255, 255, 0) 40%);
+        }
+        
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 140px;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, rgba(78,63,138,0.25), transparent);
+            transform: translateX(-50%);
+            border-radius: 999px;
+        }
+        
+        .section-separated {
+            position: relative;
+            background: linear-gradient(180deg, rgba(78, 63, 138, 0.05) 0%, rgba(255, 255, 255, 0) 45%);
+        }
+        
+        .section-separated::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, rgba(78,63,138,0.22), transparent);
+            transform: translateX(-50%);
+            border-radius: 999px;
+        }
+        
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-copy {
+            background: var(--white);
+            padding: 2.75rem;
+            border-radius: 18px;
+            box-shadow: 0 18px 48px rgba(0,0,0,0.08);
+        }
+        
+        .about-copy h3 {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+        
+        .about-copy p + p {
+            margin-top: 1rem;
+        }
+        
+        .about-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.75rem;
+        }
+        
+        .about-point {
+            display: flex;
+            gap: 0.85rem;
+            align-items: flex-start;
+        }
+        
+        .about-point span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: rgba(78, 63, 138, 0.08);
+            color: var(--primary-purple);
+            font-weight: 800;
+        }
+        
+        .about-point p {
+            margin: 0;
+        }
+        
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            justify-content: center;
+        }
+        
+        .founder-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 2rem 2rem 1.75rem;
+            box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            grid-template-areas:
+                "photo head"
+                "body body";
+            gap: 1rem 1.25rem;
+            align-items: start;
+        }
+        
+        .founder-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 999px;
+            object-fit: cover;
+            border: 4px solid rgba(78, 63, 138, 0.12);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            grid-area: photo;
+        }
+        
+        .founder-head {
+            grid-area: head;
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+            align-self: start;
+        }
+        
+        .founder-head h4 {
+            color: var(--primary-purple);
+            margin: 0;
+        }
+        
+        .founder-head .role {
+            font-weight: 700;
+            color: var(--dark-gray);
+        }
+        
+        .founder-bio {
+            grid-area: body;
+            margin: 0.75rem 0 0;
+            align-self: start;
+        }
+        
+        .ops-team {
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        .ops-team p {
+            margin: 1rem auto 2rem;
+            max-width: 600px;
+        }
+        
+        .ops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            justify-items: center;
+        }
+        
+            .ops-card {
+                background: var(--white);
+                border-radius: 14px;
+                padding: 1.25rem;
+                box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+                text-align: center;
+                width: 210px;
+                max-width: 100%;
+            }
+        
+        .ops-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 18px;
+            object-fit: cover;
+            margin: 0 auto 0.85rem;
+        }
+        
+        .ops-card h5 {
+            color: var(--primary-purple);
+            margin-bottom: 0.25rem;
+        }
+        
+        .ops-card span {
+            font-size: 0.95rem;
+            color: var(--medium-gray);
+        }
+        
+        .hero-image img {
+            border-radius: 24px;
+            box-shadow: 0 30px 80px rgba(78, 63, 138, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 6rem 2rem;
+        }
+        
+        .section-deep {
+            padding: 8rem 2rem;
+        }
+        
+        .section-tight {
+            padding: 4rem 2rem;
+        }
+        
+        .section-alt {
+            background: var(--bg-lavender);
+        }
+        
+        .container {
+            max-width: 1300px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        
+        .section-pretitle {
+            color: var(--primary-purple);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            padding: 0.5rem 1.5rem;
+            background: var(--light-gray);
+            border-radius: 50px;
+            display: inline-block;
+        }
+        
+        .section-title {
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-subtitle {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            color: var(--medium-gray);
+        }
+        
+        /* ===== PROBLEM SECTION ===== */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 5rem;
+        }
+        
+        .problem-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: var(--white);
+            border-radius: 16px;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+        
+        .problem-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 82, 82, 0.15);
+            border-color: var(--alert-red);
+        }
+        
+        .problem-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .problem-item:hover .problem-icon {
+            animation: pulse 1s ease;
+        }
+        
+        .problem-item h4 {
+            color: var(--primary-purple);
+            margin-bottom: 0.75rem;
+        }
+        
+        .problem-accent {
+            color: var(--alert-red);
+            font-weight: 600;
+        }
+        
+        .insight-box {
+            background: linear-gradient(135deg, var(--light-purple), var(--primary-purple));
+            color: var(--white);
+            padding: 3rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(78, 63, 138, 0.4);
+            width: min(900px, 100%);
+            margin: 0 auto;
+        }
+        
+        .insight-box h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+        
+        .insight-box p {
+            font-size: 1.1rem;
+        }
+        
+        /* ===== LEARNING READINESS ===== */
+        .lr-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        
+        .lr-diagram {
+            background: var(--white);
+            padding: 3.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        
+        .flow-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .flow-item {
+            background: var(--light-lavender);
+            padding: 2rem;
+            border-radius: 16px;
+            border-left: 5px solid var(--primary-purple);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .flow-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .flow-item::after {
+            content: '↓';
+            position: absolute;
+            bottom: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--primary-purple);
+            font-size: 2rem;
+        }
+        
+        .flow-item:last-child::after {
+            display: none;
+        }
+        
+        .flow-item h4 {
+            color: var(--primary-purple);
+            margin-bottom: 0.75rem;
+        }
+        
+        .research-citation {
+            margin-top: 2.5rem;
+            padding: 2rem;
+            background: var(--light-lavender);
+            border-left: 5px solid var(--info-blue);
+            border-radius: 12px;
+            font-style: italic;
+        }
+        
+        /* ===== SKILLS SECTION ===== */
+        .skills-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .tab-button {
+            padding: 1rem 2.5rem;
+            background: var(--white);
+            border: 2px solid var(--light-purple);
+            border-radius: 50px;
+            font-weight: 700;
+            color: var(--primary-purple);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .tab-button.active {
+            background: var(--primary-purple);
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(78, 63, 138, 0.4);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeInUp 0.6s ease;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        
+        .skill-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-purple);
+            box-shadow: 0 20px 50px rgba(78, 63, 138, 0.25);
+        }
+        
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+            color: var(--white);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 24px rgba(78, 63, 138, 0.3);
+            transition: transform 0.6s ease;
+        }
+        
+        .skill-card:hover .skill-icon {
+            transform: rotateY(360deg);
+        }
+        
+        .skill-card h4 {
+            color: var(--primary-purple);
+            margin-bottom: 0.75rem;
+        }
+        
+        .benefits-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+        
+        .benefit-card {
+            background: linear-gradient(135deg, var(--light-lavender), var(--white));
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(78, 63, 138, 0.2);
+        }
+        
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .benefit-card h4 {
+            color: var(--primary-purple);
+            margin-bottom: 0.75rem;
+        }
+        
+        /* ===== TRUSTED BY ===== */
+        .trusted-section {
+            padding: 2rem 2rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .school-logos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.75rem;
+            max-width: 1150px;
+            margin: 3rem auto;
+            align-items: center;
+        }
+        
+        .school-logo {
+            height: 90px;
+            background: var(--light-gray);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(100%) opacity(0.6);
+            transition: all 0.3s ease;
+            font-weight: 700;
+            color: var(--medium-gray);
+            padding: 0.85rem;
+        }
+        
+        .school-logo:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.05);
+        }
+        
+        .school-logo img {
+            max-width: 100%;
+            max-height: 70px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        /* ===== VIDEO ===== */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+            max-width: 820px;
+            margin: 0 auto;
+        }
+        
+        .video-placeholder {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            padding: 2rem;
+        }
+        
+        .video-copy {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+            text-align: center;
+        }
+        
+        .video-title {
+            color: var(--white);
+            margin: 0;
+        }
+        
+        .play-button {
+            width: 100px;
+            height: 100px;
+            background: var(--accent-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-purple);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 40px rgba(245, 213, 39, 0.5);
+        }
+        
+        .play-button:hover {
+            transform: scale(1.15);
+        }
+        
+        body {
+            overflow-x: hidden;
+        }
+        
+        /* ===== STATS ===== */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(78, 63, 138, 0.25);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--primary-purple);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .stat-label {
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-top: 0.5rem;
+        }
+        
+        .stats-disclaimer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+            font-style: italic;
+        }
+        
+        .report-preview {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            max-width: 700px;
+        }
+        
+        .report-preview h3 {
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+        }
+        
+        .report-preview img {
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .report-preview ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .report-preview li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative;
+            padding: 2rem 1rem;
+            width: min(900px, 100%);
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary-purple), var(--light-purple));
+        }
+        
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .timeline-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.25rem;
+            font-weight: 900;
+            font-family: 'Poppins', sans-serif;
+            box-shadow: 0 8px 24px rgba(78, 63, 138, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .timeline-content {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateX(10px);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+        
+        .includes-card {
+            background: var(--white);
+            padding: 3.5rem;
+            border-radius: 20px;
+            margin-top: 5rem;
+            width: min(1100px, 100%);
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+        }
+        
+        .includes-card h3 {
+            text-align: center;
+            color: var(--primary-purple);
+            margin-bottom: 3rem;
+        }
+        
+        .includes-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem 2rem;
+            width: min(900px, 100%);
+            margin: 0 auto;
+        }
+        
+        .include-item {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .check-icon {
+            color: var(--success-green);
+            font-size: 1.3rem;
+        }
+        
+        /* ===== SCIENCE ===== */
+        .science-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+        
+        .expert-quote {
+            background: linear-gradient(135deg, var(--light-lavender), var(--bg-lavender));
+            padding: 2rem;
+            border-left: 5px solid var(--primary-purple);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .expert-source {
+            font-size: 0.95rem;
+            color: var(--medium-gray);
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        .expert-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .expert-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .expert-card h4 {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+        }
+        
+        /* ===== TESTIMONIALS ===== */
+            .testimonials-carousel {
+                overflow: hidden;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        
+        .testimonials-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-slide {
+            min-width: 100%;
+            padding: 1rem;
+        }
+        
+        .testimonial-card {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: .5rem;
+            right: 1rem;
+            font-size: 5rem;
+            color: var(--accent-yellow);
+            opacity: 0.4;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .author-image {
+            width: 72px;
+            height: 72px;
+            border-radius: 999px;
+            object-fit: cover;
+            /* background: linear-gradient(135deg, var(--primary-purple), var(--light-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: var(--white);
+            font-weight: 800; */
+        }
+        
+        .author-info h5 {
+            color: var(--primary-purple);
+            font-size: 1.2rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.15rem;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .carousel-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-purple);
+            color: var(--white);
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-arrow:hover {
+            background: var(--dark-purple);
+            transform: scale(1.1);
+        }
+        
+        .carousel-dots {
+            display: flex;
+            gap: 0.75rem;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: var(--primary-purple);
+            width: 36px;
+            border-radius: 6px;
+        }
+        
+        /* ===== AUDIENCE ===== */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .audience-card {
+            padding: 3.5rem 3rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .audience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .schools-card {
+            background: linear-gradient(135deg, var(--bg-lavender), var(--light-lavender));
+            border: 2px solid var(--light-purple);
+        }
+        
+        .parents-card {
+            background: linear-gradient(135deg, var(--light-lavender), var(--white));
+            border: 2px solid var(--light-purple);
+        }
+        
+        .audience-card h3 {
+            color: var(--primary-purple);
+            margin-bottom: 2rem;
+        }
+        
+        .audience-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .audience-card li {
+            margin-bottom: 1.25rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .audience-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: 900;
+            font-size: 1.3rem;
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        
+        .cta-section h2,
+        .cta-section p {
+            color: var(--white);
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-form {
+            max-width: 700px;
+            margin: 3rem auto 0;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+        
+        .cta-form h3 {
+            color: var(--primary-purple);
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.75rem;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1.25rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-purple);
+            box-shadow: 0 0 0 4px rgba(78, 63, 138, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-submit {
+            width: 100%;
+            margin-top: 1rem;
+        }
+        
+        .form-note {
+            font-size: 0.85rem;
+            color: var(--medium-gray);
+            margin-top: 1.25rem;
+            text-align: center;
+        }
+        
+        .alternative-cta {
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .alt-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--dark-purple);
+            color: var(--white);
+            padding: 5rem 2rem 2rem;
+        }
+        
+        .footer-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        
+        .footer-logo img {
+            height: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-tagline {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.3rem;
+            color: var(--accent-yellow);
+        }
+        
+        .footer-column h4 {
+            color: var(--accent-yellow);
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+            padding-left: 8px;
+        }
+        
+        .footer-bottom {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+            opacity: 0.8;
+        }
+        
+        /* ===== FLOATING ELEMENTS ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--white);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            z-index: 999;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        .mobile-cta-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 1rem;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+            z-index: 998;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.25rem; }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero-container,
+            .lr-content,
+            .impact-grid,
+            .science-content,
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .problem-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .insight-box {
+                padding: 2.75rem 2.25rem;
+            }
+            
+            .video-wrapper {
+                max-width: 720px;
+            }
+            
+            .report-preview {
+                padding: 2.5rem;
+            }
+            
+            .about-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .founder-card {
+                grid-template-columns: 90px 1fr;
+                gap: 1rem;
+            }
+            
+            .includes-card {
+                padding: 3rem 2.5rem;
+            }
+            
+            .includes-list {
+                width: 100%;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2.25rem; }
+            h2 { font-size: 1.85rem; }
+            
+            .section {
+                padding: 4rem 1.5rem;
+            }
+            
+            .hero {
+                padding: 3rem 1.5rem;
+            }
+            
+            .hero-image {
+                order: -1;
+                text-align: center;
+            }
+            
+            .hero-image img {
+                max-width: calc(100% - 12px);
+                width: calc(100% - 12px);
+                height: auto;
+                margin: 6px auto 0;
+                display: block;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .hero-container {
+                gap: 1.75rem;
+            }
+            
+            .about-copy {
+                padding: 2rem 1.5rem;
+            }
+            
+            .founders-grid {
+                gap: 1.25rem;
+            }
+            
+            .founder-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                grid-template-areas:
+                    "photo"
+                    "head"
+                    "body";
+            }
+            
+            .founder-photo {
+                margin: 0 auto;
+            }
+            
+            .trust-bar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.85);
+                border-radius: 14px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+                border: 1px solid rgba(78, 63, 138, 0.08);
+            }
+            
+            .trust-item {
+                justify-content: flex-start;
+                gap: 0.85rem;
+                font-size: 1rem;
+            }
+            
+            .trust-icon {
+                background: rgba(0, 179, 126, 0.12);
+                color: var(--success-green);
+                border-radius: 50%;
+                width: 34px;
+                height: 34px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.1rem;
+            }
+            
+            .problem-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .benefits-row,
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .school-logos {
+                grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+                gap: 1.25rem;
+            }
+            
+            .insight-box {
+                width: 100%;
+                padding: 2.25rem 1.5rem;
+            }
+            
+            .timeline {
+                padding: 2rem 0;
+            }
+            
+            .includes-card {
+                padding: 2.75rem 1.5rem;
+            }
+            
+            .includes-list {
+                gap: 1.25rem;
+            }
+            
+            .video-wrapper {
+                max-width: 100%;
+                border-radius: 16px;
+            }
+            
+            .play-button {
+                width: 72px;
+                height: 72px;
+                font-size: 1.75rem;
+            }
+            
+            .btn {
+                padding: 0.95rem 1.8rem;
+            }
+            
+            .report-preview {
+                padding: 2rem;
+                margin: 0 auto 1.5rem;
+            }
+            
+            .testimonials-carousel {
+                max-width: 100%;
+            }
+            
+            .testimonial-card {
+                padding: 2rem 1.5rem;
+                margin: 0;
+                max-width: 100%;
+            }
+            
+            .testimonial-slide {
+                padding: 0 0.25rem;
+            }
+            
+            .cta-section {
+                padding: 4rem 1.25rem;
+            }
+            
+            .cta-form {
+                margin: 2.5rem auto 0;
+                padding: 2rem 1.5rem;
+            }
+            
+            .nav-cta {
+                padding: 0.65rem 1.1rem;
+                line-height: 1.2;
+            }
+            
+            .phone-link {
+                display: inline-flex;
+                align-items: center;
+                line-height: 1.2;
+                white-space: normal;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                grid-template-columns: 60px 1fr;
+                gap: 1.5rem;
+            }
+            
+            .timeline-number {
+                width: 60px;
+                height: 60px;
+                font-size: 1.75rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mobile-cta-bar {
+                display: block;
+            }
+            
+            .whatsapp-float {
+                bottom: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <img src="assets/images/logo.png" alt="Brainmoto Logo">
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#science">The Science</a></li>
+                <li><a href="#for-schools">For Schools</a></li>
+                <li><a href="#for-parents">For Parents</a></li>
+                <li><a href="tel:+919822004143" class="phone-link">📞 +91 98220 04143</a></li>
+                <li><a href="#request-assessment" class="nav-cta">Request Free Assessment</a></li>
+            </ul>
+            
+            <button class="mobile-menu-toggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-subtitle">India's Leading Neuro-Motor Learning Readiness Program</p>
+                <h1>Turn Learning Struggles Into <span class="highlight">Learning Success</span></h1>
+                <p class="subheadline">The scientifically-proven program that builds the brain-body connections children need to excel academically</p>
+                
+                <div class="hero-cta">
+                    <a href="#request-assessment" class="btn btn-primary">Request Free Assessment</a>
+                    <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                </div>
+                
+                <div class="trust-bar">
+                    <div class="trust-item">
+                        <span class="trust-icon">✓</span>
+                        <span>6,000+ schools globally</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">✓</span>
+                        <span>22 Indian cities</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">✓</span>
+                        <span>NEP Aligned</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="assets/images/Scientifically-developed-activities.png" alt="Children engaged in learning activities">
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="section section-deep">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-pretitle">The Hidden Challenge</p>
+                <h2 class="section-title">Why Bright Children Sometimes Struggle</h2>
+                <p class="section-subtitle">Despite being intelligent, many children face unexpected challenges that hold them back</p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-item animate-on-scroll">
+                    <div class="problem-icon">📖</div>
+                    <h4>Reading Challenges</h4>
+                    <p>Struggling with <span class="problem-accent">fluency and comprehension</span></p>
+                </div>
+                <div class="problem-item animate-on-scroll">
+                    <div class="problem-icon">✍️</div>
+                    <h4>Handwriting Issues</h4>
+                    <p>Poor grip, <span class="problem-accent">messy writing</span></p>
+                </div>
+                <div class="problem-item animate-on-scroll">
+                    <div class="problem-icon">🔢</div>
+                    <h4>Math Struggles</h4>
+                    <p><span class="problem-accent">Problem-solving difficulties</span></p>
+                </div>
+                <div class="problem-item animate-on-scroll">
+                    <div class="problem-icon">🎯</div>
+                    <h4>Attention Problems</h4>
+                    <p>Can't focus, <span class="problem-accent">easily distracted</span></p>
+                </div>
+                <div class="problem-item animate-on-scroll">
+                    <div class="problem-icon">🧠</div>
+                    <h4>Memory Troubles</h4>
+                    <p>Difficulty <span class="problem-accent">remembering instructions</span></p>
+                </div>
+                <div class="problem-item animate-on-scroll">
+                    <div class="problem-icon">💬</div>
+                    <h4>Language Difficulties</h4>
+                    <p><span class="problem-accent">Expression challenges</span></p>
+                </div>
+            </div>
+            
+            <div class="insight-box animate-on-scroll">
+                <h3>🔍 The Hidden Truth</h3>
+                <p><strong>Research shows: Many learning difficulties are actually motor skills deficiencies</strong> that show up as academic struggles. When children lack strong brain-body connections, learning becomes harder than it should be.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LEARNING READINESS -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-pretitle">The Missing Link</p>
+                <h2 class="section-title">What is Learning Readiness?</h2>
+            </div>
+            
+            <div class="lr-content">
+                <div class="animate-on-scroll">
+                    <p style="font-size: 1.2rem; font-weight: 600; color: var(--primary-purple); margin-bottom: 2rem;">Learning Readiness is the condition where a child's brain and body systems are mature enough to absorb, process, and retain new information effectively.</p>
+                    
+                    <p>Without learning readiness, even the brightest children struggle. Traditional tutoring addresses symptoms, not the root cause.</p>
+                    
+                    <div class="research-citation">
+                        <p><strong>Research shows:</strong> "Learning readiness contributes highly to educational achievement. Absence of learning readiness spoils the teaching-learning process."</p>
+                        <p><em>— International Journal of Indian Psychology</em></p>
+                    </div>
+                </div>
+                
+                <div class="lr-diagram animate-on-scroll">
+                    <h3 style="text-align: center; margin-bottom: 2.5rem; color: var(--primary-purple);">The Foundation of Learning</h3>
+                    <div class="flow-diagram">
+                        <div class="flow-item">
+                            <h4>Better Motor Skills</h4>
+                            <p>Body Management, Coordination, Locomotor, Object Control</p>
+                        </div>
+                        <div class="flow-item">
+                            <h4>Better Cognitive Functions</h4>
+                            <p>Focus, Memory, Problem Solving, Planning</p>
+                        </div>
+                        <div class="flow-item">
+                            <h4>Better Academic Performance</h4>
+                            <p>Reading, Writing, Math, Overall Excellence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="section section-deep">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-pretitle">The Brainmoto Solution</p>
+                <h2 class="section-title">Building Learning Readiness Through the 8 Core Skills</h2>
+                <p class="section-subtitle">We measure and improve the essential skills that make learning possible</p>
+            </div>
+            
+            <div class="skills-tabs">
+                <button class="tab-button active" onclick="showTab('motor')">Motor Skills Foundation</button>
+                <button class="tab-button" onclick="showTab('cognitive')">Cognitive Functions Developed</button>
+            </div>
+            
+            <div id="motor-tab" class="tab-content active">
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">🧘</div>
+                        <h4>Posture & Body Management</h4>
+                        <p>Control the body in stationary and moving positions</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🤸</div>
+                        <h4>Coordination & Bilateral Integration</h4>
+                        <p>Synchronized movement of body parts together</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🏃</div>
+                        <h4>Locomotor & Movement Fluency</h4>
+                        <p>Moving the body from one point to another</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">⚽</div>
+                        <h4>Object Control & Visual Tracking</h4>
+                        <p>Controlling objects with hands, feet, or body</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="cognitive-tab" class="tab-content">
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">👁️</div>
+                        <h4>Attention & Self-Regulation</h4>
+                        <p>Sustain attention and resist distractions</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">💡</div>
+                        <h4>Thinking & Problem Solving</h4>
+                        <p>Reasoning and analytical abilities</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">📋</div>
+                        <h4>Planning & Organizing</h4>
+                        <p>Sequential thinking and organization</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🧠</div>
+                        <h4>Working Memory</h4>
+                        <p>Store and recall information effectively</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="benefits-row">
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">📊</div>
+                    <h4>Measured Outcomes</h4>
+                    <p>Pre/post assessments track motor + cognitive growth</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">✅</div>
+                    <h4>Visible Progress</h4>
+                    <p>Improvement in focus, math, reading & handwriting</p>
+                </div>
+                <div class="benefit-card animate-on-scroll">
+                    <div class="benefit-icon">🌍</div>
+                    <h4>Proven at Scale</h4>
+                    <p>Trusted by 6,000+ schools globally</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUSTED BY -->
+    <section class="trusted-section section-separated">
+        <div class="container">
+            <h3>Trusted by Leading Schools Across India</h3>
+            <div class="school-logos">
+                <div class="school-logo"><img src="assets/images/Aurinko_Academy_Logo-removebg-preview.png"></div>
+                <div class="school-logo"><img src="assets/images/Vydehi_School_of_Excellence_logo-removebg-preview.png"></div>
+                <div class="school-logo"><img src="assets/images/GNPS LOGO.png"></div>
+                <div class="school-logo"><img src="assets/images/Green valley LOGO.jpg"></div>
+                <div class="school-logo"><img src="assets/images/Kamal Model Sr. Sec School Logo.jpg"></div>
+                <div class="school-logo"><img src="assets/images/BCM Logo.png"></div>
+                <div class="school-logo"><img src="assets/images/Burnpur River Side School PNG Logo.png"></div>
+                <div class="school-logo"><img src="assets/images/Kabir Global Academy logo.png"></div>
+                <div class="school-logo"><img src="assets/images/GASP Logo.png"></div>
+                <div class="school-logo"><img src="assets/images/MGIS Logo.png"></div>
+                <div class="school-logo"><img src="assets/images/MLS.png"></div>
+                <div class="school-logo"><img src="assets/images/Sunbeam English School, Bhagwanpur - logo.png"></div>
+                <div class="school-logo"><img src="assets/images/GIIS Logo.png"></div>
+                <div class="school-logo"><img src="assets/images/GK LOGO PNG.png"></div>
+                <div class="school-logo"><img src="assets/images/YPS Mohali.png"></div>
+                <div class="school-logo"><img src="assets/images/Octominds_logo-removebg-preview (1).png"></div>
+                <div class="school-logo"><img src="assets/images/TOS1.png"></div>
+                <div class="school-logo"><img src="assets/images/Supercubs logo.png"></div>
+                <div class="school-logo"><img src="assets/images/Vega_48_LOGO-1-removebg-preview.png"></div>
+                <div class="school-logo"><img src="assets/images/Sri_Swamy_School_-_Logo-removebg-preview.png"></div>
+                <div class="school-logo"><img src="assets/images/MIS International School LOGO.png"></div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO -->
+    <!-- <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-pretitle">See It In Action</p>
+                <h2 class="section-title">Watch How Brainmoto Transforms Learning</h2>
+            </div>
+            
+            <div class="video-wrapper animate-on-scroll">
+                <div class="video-placeholder">
+                    <div class="video-copy">
+                        <div class="play-button">▶</div>
+                        <h3 class="video-title">Watch: How We Build Learning Readiness</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- RESULTS -->
+    <section class="section section-deep section-separated">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-pretitle">Measurable Impact</p>
+                <h2 class="section-title">Visible Progress, Proven Results</h2>
+                <p class="section-subtitle">Every child receives detailed assessment reports showing current skill levels vs. benchmarks, areas of strength and concern, actionable interventions, progress tracking over time</p>
+            </div>
+            
+             <!-- <div class="report-preview animate-on-scroll">
+                    <h3>Every child receives detailed reports showing</h3> -->
+                    <!-- <img src="/home/vikas/Downloads/Cognitive-assessment-report.png" alt="Assessment Report">
+                    <p style="font-weight: 700;">Every child receives detailed reports showing:</p> -->
+                    <!-- <ul>
+                        <li>✓ Current skill levels vs. benchmarks</li>
+                        <li>✓ Areas of strength and concern</li>
+                        <li>✓ Actionable interventions</li>
+                        <li>✓ Progress tracking over time</li>
+                    </ul>
+                </div> -->
+
+            <div class="impact-grid">
+                <!-- <div>
+                    <div class="stats-grid">
+                        <div class="stat-card animate-on-scroll">
+                            <div class="stat-number">67%</div>
+                            <div class="stat-label">Improvement in Coordination</div>
+                        </div>
+                        <div class="stat-card animate-on-scroll">
+                            <div class="stat-number">50%</div>
+                            <div class="stat-label">Improvement in Cognitive Abilities</div>
+                        </div>
+                        <div class="stat-card animate-on-scroll">
+                            <div class="stat-number">200%</div>
+                            <div class="stat-label">Improvement in Object Control</div>
+                        </div>
+                        <div class="stat-card animate-on-scroll">
+                            <div class="stat-number">38%</div>
+                            <div class="stat-label">Improvement in Locomotor Skills</div>
+                        </div>
+                    </div>
+                    <p class="stats-disclaimer">*Based on assessments across 100,000+ students nationwide</p>
+                </div> -->
+                 <div class="report-preview animate-on-scroll">
+                    <h3>Sample Motor Skills Assessment Report</h3>
+                    <img src="assets/images/MSAP-report.png" alt="Assessment Report">
+                    <!-- <p style="font-weight: 700;">Every child receives detailed reports showing:</p>
+                    <ul>
+                        <li>✓ Current skill levels vs. benchmarks</li>
+                        <li>✓ Areas of strength and concern</li>
+                        <li>✓ Actionable interventions</li>
+                        <li>✓ Progress tracking over time</li>
+                    </ul> -->
+                </div>
+                <div class="report-preview animate-on-scroll">
+                    <h3>Sample Cognitive Assessment Report</h3>
+                    <img src="assets/images/Cognitive-assessment-report.png" alt="Assessment Report">
+                    <!-- <p style="font-weight: 700;">Every child receives detailed reports showing:</p>
+                    <ul>
+                        <li>✓ Current skill levels vs. benchmarks</li>
+                        <li>✓ Areas of strength and concern</li>
+                        <li>✓ Actionable interventions</li>
+                        <li>✓ Progress tracking over time</li>
+                    </ul> -->
+                </div>
+               
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section section-alt" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-pretitle">Simple Implementation</p>
+                <h2 class="section-title">How Brainmoto Works at Your School</h2>
+                <p class="section-subtitle">A complete, turnkey solution that fits seamlessly into your schedule</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-number">1</div>
+                    <div class="timeline-content">
+                        <h3>Free Assessment & Onboarding</h3>
+                        <p>We conduct comprehensive assessments to establish baseline measurements and identify specific development needs.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-number">2</div>
+                    <div class="timeline-content">
+                        <h3>Teacher Training & Certification</h3>
+                        <p>Your teachers receive complete training on curriculum, assessment methods, and delivery techniques.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-number">3</div>
+                    <div class="timeline-content">
+                        <h3>Weekly Sessions During School Hours</h3>
+                        <p>Structured activities delivered by your trained teachers. Minimum once per week throughout the year.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-number">4</div>
+                    <div class="timeline-content">
+                        <h3>Continuous Monitoring & Support</h3>
+                        <p>Dedicated coordinator provides weekly check-ins, analyzes lessons, and offers on-call support.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-number">5</div>
+                    <div class="timeline-content">
+                        <h3>Progress Reports & Parent Communication</h3>
+                        <p>Detailed reports for each child plus class summaries. Parents receive actionable insights.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="includes-card">
+                <h3>What Your School Gets</h3>
+                <div class="includes-list">
+                    <div class="include-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>School Kit:</strong> All materials provided</span>
+                    </div>
+                    <div class="include-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Weekly</strong> video lesson plans</span>
+                    </div>
+                    <div class="include-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Motor skills</strong> assessment system</span>
+                    </div>
+                    <div class="include-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Brain Power</strong> cognitive assessment</span>
+                    </div>
+                    <div class="include-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Teacher training</strong> & certification</span>
+                    </div>
+                    <div class="include-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Dedicated</strong> program coordinator</span>
+                    </div>
+                    <div class="include-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Weekly</strong> progress monitoring</span>
+                    </div>
+                    <div class="include-item">
+                        <span class="check-icon">✓</span>
+                        <span><strong>Detailed reports</strong> for each child</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCIENCE -->
+    <section class="section section-deep" id="science">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-pretitle">Research-Backed</p>
+                <h2 class="section-title">The Science Behind Brainmoto</h2>
+                <p class="section-subtitle">Developed by internationally recognized experts, validated by rigorous research</p>
+            </div>
+            
+            <div class="science-content">
+                <div>
+                    <div class="expert-quote animate-on-scroll">
+                        <p style="font-size: 1.3rem; font-weight: 700; color: var(--primary-purple);">"Children who can't catch lag behind in reading, writing and maths"</p>
+                        <p class="expert-source">— Prof. Mark Mon-Williams, University of Leeds</p>
+                    </div>
+                    
+                    <div class="expert-card animate-on-scroll">
+                        <h4>🎥 BBC Documentary Finding</h4>
+                        <p>Children with better interceptive timing were <strong>5.5 months ahead</strong> in mathematical skills.</p>
+                    </div>
+                    
+                    <div class="expert-card animate-on-scroll">
+                        <h4>📚 Research Foundation</h4>
+                        <p>Motor skills development has been proven to directly improve cognitive functions and learning abilities.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--primary-purple); margin-bottom: 2.5rem;">Expert-Developed Curriculum</h3>
+                    
+                    <div class="expert-card animate-on-scroll">
+                        <h4>Hans Stroes</h4>
+                        <p><strong>Father of the world's most advanced Motor Skills Program.</strong> Approved by government bodies, peer-reviewed by scientists, published in medical journals.</p>
+                    </div>
+                    
+                    <div class="expert-card animate-on-scroll">
+                        <h4>Sebastiaan Platvoet</h4>
+                        <p><strong>Renowned researcher in motor skill development.</strong> His work ensures Brainmoto meets the highest international standards.</p>
+                    </div>
+                    
+                    <p style="margin-top: 2.5rem; text-align: center;">
+                        <a href="#request-assessment" class="btn btn-outline">Learn More About Our Research</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-pretitle">About Us</p>
+                <h2 class="section-title">Brainmoto's Mission and The Team</h2>
+                <p class="section-subtitle">We combine proven neuro-motor curriculum, rigorous assessments, and educator training to make learning readiness a reality for every child.</p>
+            </div>
+            
+            <div class="about-wrapper">
+                <div class="about-copy animate-on-scroll">
+                    <h3>Our Mission</h3>
+                    <p>Brainmoto is built on a simple idea: when a child's brain and body are ready, learning feels natural. We bring globally validated motor-skills programs, cognitive assessments, and teacher training into schools so children can thrive in class and in life.</p>
+                    <p>Every program is rooted in science, shaped by classroom realities, and delivered in ways that fit school schedules without adding workload.</p>
+                    <div class="about-points">
+                        <div class="about-point">
+                            <span>01</span>
+                            <p>Research-led curriculum co-developed with international experts and aligned to Indian classrooms.</p>
+                        </div>
+                        <div class="about-point">
+                            <span>02</span>
+                            <p>Integrated assessments that connect motor readiness with academic outcomes and parent reporting.</p>
+                        </div>
+                        <div class="about-point">
+                            <span>03</span>
+                            <p>Hands-on teacher enablement so schools can run Brainmoto with confidence and measurable results.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-copy animate-on-scroll">
+                    <h3>How We Work</h3>
+                    <p>We partner with schools end-to-end: onboarding, teacher certification, weekly in-school sessions, and continuous monitoring. Dedicated coordinators track progress and keep families informed with clear, actionable insights.</p>
+                    <p>With Brainmoto, schools get a turnkey program that elevates student focus, handwriting, math, reading, and confidence—without disrupting the timetable.</p>
+                </div>
+            </div>
+            
+            <div class="founders-grid">
+                <h3 class="section-title" style="grid-column: 1 / -1; text-align: center; margin: 1.25rem 0 0.75rem;">Our Team</h3>
+                
+                <div class="founder-card animate-on-scroll">
+                    <img src="assets/images/KUNAL-SAREEN.png" alt="Kunal Sareen" class="founder-photo">
+                    <div class="founder-head">
+                        <h4>Kunal Sareen</h4>
+                        <div class="role">Founder & CEO</div>
+                    </div>
+                    <p class="founder-bio">Kunal has always been driven to help children succeed. With an MBA, UK football coaching certifications, and years of coaching experience, he saw a gap in foundational motor skills that hold kids back. He brought the world's most advanced motor-skills curriculum to India and paired it with cognitive assessments to launch Zoommer and Brainmoto. Friends call him the “pied piper” for his ability to connect with children.</p>
+                </div>
+                
+                <div class="founder-card animate-on-scroll">
+                    <img src="assets/images/Hans-stroes.png" alt="Hans Stroes" class="founder-photo">
+                    <div class="founder-head">
+                        <h4>Hans Stroes</h4>
+                        <div class="role">Program Architect</div>
+                    </div>
+                    <p class="founder-bio">Hans is the father of the world's most advanced motor skills program—approved by government bodies, peer reviewed by scientists, published in medical journals, and recommended by pediatricians and developmental therapists. He ensures Brainmoto meets the highest international standards.</p>
+                </div>
+                
+                <div class="founder-card animate-on-scroll">
+                    <img src="assets/images/Vikas-Rana.png" alt="Vikas Rana" class="founder-photo">
+                    <div class="founder-head">
+                        <h4>Vikas Rana</h4>
+                        <div class="role">Director, Programs & Product</div>
+                    </div>
+                    <p class="founder-bio">An IIT Mumbai alumnus, Vikas has led complex international projects across Africa and the Middle East. He helped shape Zoommer in its early stages with Kunal, integrating advanced motor skills and cognitive assessments. At Brainmoto, he drives innovation that blends motor and cognitive readiness with learning outcomes.</p>
+                </div>
+            </div>
+            
+            <div class="ops-team animate-on-scroll">
+                <p>A dedicated team led by Anudip, Krishna, and Bhavika keeps Brainmoto running smoothly behind the scenes—coordinating schools, families, and data so every child’s progress is clear.</p>
+                <div class="ops-grid">
+                    <div class="ops-card">
+                        <img src="assets/images/anudip.jpg" alt="Anudip Kulkarni">
+                        <h5>Anudip Kulkarni</h5>
+                        <span>Operations</span>
+                    </div>
+                    <div class="ops-card">
+                        <img src="assets/images/krishna.jpg" alt="Krishna Khandelwal">
+                        <h5>Krishna Khandelwal</h5>
+                        <span>Implementation</span>
+                    </div>
+                    <div class="ops-card">
+                        <img src="assets/images/bhavika.jpg" alt="Bhavika Oswal">
+                        <h5>Bhavika Oswal</h5>
+                        <span>Parent & School Success</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section section-tight section-alt" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-pretitle">Trusted By Leaders</p>
+                <h2 class="section-title">What Schools Say About Brainmoto</h2>
+            </div>
+            
+            <div class="testimonials-carousel">
+                <div class="testimonials-track" id="testimonials-track">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="quote-icon">"</div>
+                            <p class="testimonial-text">When I met the Brainmoto team, the activities looked simple. It was only after I tried them myself that I realized how much thinking and planning each step requires. Within one term, we began noticing practical changes: more engaged classrooms, better attention, and greater interest in academics.</p>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <img src="assets/images/Monika-Chhabra.png"></div>
+                                <div class="author-info">
+                                    <h5>Dr. Monika Chhabra</h5>
+                                    <p>Principal, MIS International School, Pune</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="quote-icon">"</div>
+                            <p class="testimonial-text">Brainmoto works. Our students focus better, stay on task longer, and participate more actively. The activities are fun and build confidence. The team is reliable and supportive. Highly recommended.</p>
+                            <div class="testimonial-author">
+                                <div class="author-image"><img src="assets/images/Bindu-Rajesh.png"></div>
+                                <div class="author-info">
+                                    <h5>Mrs. Bindu Rajesh</h5>
+                                    <p>Principal, GIIS School Bannerghatta, Bangalore</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="quote-icon">"</div>
+                            <p class="testimonial-text">The collaboration and support from the Brainmoto team has been exceptional. The learning equipment and resources provided are having a profoundly positive impact on our students.  Overall, it helps in enhancing their motor skills development. Please continue to maintain this high standard of excellence, as it is significantly contributing to the holistic growth of our students. Thank you for your dedication and commitment to excellence.</p>
+                            <div class="testimonial-author">
+                                <div class="author-image"><img src="assets/images/teacher.jpg"></div>
+                                <div class="author-info">
+                                    <h5>Ms. Ayushi Bisht</h5>
+                                    <p>Coordinator, Kamal Model School, Delhi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-controls">
+                <button class="carousel-arrow" onclick="previousTestimonial()">‹</button>
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" onclick="goToTestimonial(0)"></button>
+                    <button class="carousel-dot" onclick="goToTestimonial(1)"></button>
+                    <button class="carousel-dot" onclick="goToTestimonial(2)"></button>
+                </div>
+                <button class="carousel-arrow" onclick="nextTestimonial()">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOR SCHOOLS & PARENTS -->
+    <section class="section section-deep" id="for-schools">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Who Brainmoto Is For</h2>
+            </div>
+            
+            <div class="audience-grid">
+                <div class="audience-card schools-card animate-on-scroll">
+                    <h3>🏫 For Schools</h3>
+                    <ul>
+                        <li>Improve student academic outcomes measurably</li>
+                        <li>Differentiate from other schools</li>
+                        <li>Increase parent satisfaction & retention</li>
+                        <li>Align with NEP requirements</li>
+                        <li>Create new revenue opportunities</li>
+                        <li>No infrastructure investment needed</li>
+                        <li>Professional development for teachers</li>
+                    </ul>
+                    <a href="#request-assessment" class="btn btn-primary">Request Free Assessment</a>
+                </div>
+                
+                <div class="audience-card parents-card animate-on-scroll" id="for-parents">
+                    <h3>👪 For Parents</h3>
+                    <ul>
+                        <li>Address root cause of learning struggles</li>
+                        <li>See measurable improvements within weeks</li>
+                        <li>Receive detailed progress reports</li>
+                        <li>Get activities to support at home</li>
+                        <li>Be involved in your child's journey</li>
+                        <li>Choose a progressive school</li>
+                        <li>Access Brainmoto @ Home programs</li>
+                    </ul>
+                    <a href="#request-assessment" class="btn btn-secondary">Learn More for Parents</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section" id="request-assessment">
+        <div class="container">
+            <h2>Transform Learning Outcomes at Your School</h2>
+            <p class="section-subtitle">See the difference Brainmoto can make with a free assessment</p>
+            
+            <div class="cta-form">
+                <h3>Request Free Assessment</h3>
+                
+                <form id="assessment-form" action="https://formspree.io/f/mrbvpevq" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="school-name">School Name *</label>
+                            <input type="text" id="school-name" name="school_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-name">Your Name *</label>
+                            <input type="text" id="contact-name" name="contact_name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="role">Your Role *</label>
+                        <select id="role" name="role" required>
+                            <option value="">Select your role</option>
+                            <option value="principal">Principal</option>
+                            <option value="administrator">Administrator</option>
+                            <option value="owner">School Owner</option>
+                            <option value="coordinator">Academic Coordinator</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" name="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-count">Student Count *</label>
+                            <select id="student-count" name="student_count" required>
+                                <option value="">Select range</option>
+                                <option value="under-100">Under 100</option>
+                                <option value="100-300">100-300</option>
+                                <option value="300-500">300-500</option>
+                                <option value="500-1000">500-1,000</option>
+                                <option value="1000+">1,000+</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Grades in Your School *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="grades[]" value="nursery"> Nursery
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="grades[]" value="lkg"> LKG
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="grades[]" value="ukg"> UKG
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="grades[]" value="grade-1"> Grade 1
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="grades[]" value="grade-2"> Grade 2
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="grades[]" value="grade-3"> Grade 3
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="grades[]" value="grade-4"> Grade 4
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="grades[]" value="grade-5"> Grade 5
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">What challenges are you looking to address?</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary form-submit">Request Free Assessment</button>
+                    
+                    <p class="form-note">We respect your privacy. Your information will only be used to contact you about Brainmoto services.</p>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="form-status" style="display: none; text-align: center; padding: 20px; background-color: #d4edda; color: #155724; border-radius: 8px; margin-top: 20px;">
+                <strong>Thank you!</strong> Your assessment request has been received. We will contact you shortly.
+                </div>
+
+            </div>
+            
+            <div class="alternative-cta">
+                <p>Prefer a different approach?</p>
+                <div class="alt-buttons">
+                    <a href="assets/documents/brainmoto-brochure.pdf" class="btn btn-secondary" download>Download Brochure</a>
+                    <a href="tel:+919822004143" class="btn btn-outline">Call: +91 98220 04143</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">
+                    <img src="assets/images/logo-white.png" alt="Brainmoto Logo">
+                </div>
+                <p class="footer-tagline">Building Learning Readiness</p>
+                <p>India's leading Neuro-Motor Learning Readiness Program, helping children develop the brain-body connections essential for academic success.</p>
+                
+                <!-- <div class="footer-contact">
+                    <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <a href="tel:+919822004143">+91 98220 04143</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:info@brainomoto.com">info@brainomoto.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>Office no. 22B, Yogesh House, East Street, Camp, Pune</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💬</span>
+                        <a href="https://wa.me/919822004143" target="_blank">WhatsApp Us</a>
+                    </div>
+                </div> -->
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <div class="footer-links">
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#science">The Science</a>
+                    <a href="#for-schools">For Schools</a>
+                    <a href="#for-parents">For Parents</a>
+                    <a href="#testimonials">Testimonials</a>
+                </div>
+            </div>
+            
+            <!-- <div class="footer-column">
+                <h4>Programs</h4>
+                <div class="footer-links">
+                    <a href="#request-assessment">Brainmoto Classic</a>
+                    <a href="#request-assessment">Brainmoto @ Home</a>
+                    <a href="#request-assessment">Remedial Program</a>
+                    <a href="#request-assessment">Request Assessment</a>
+                </div>
+            </div> -->
+            
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <div class="footer-links">
+                    <a href="assets/documents/brainmoto-brochure.pdf" download>Download Brochure</a>
+                    <!-- <a href="#results">Sample Reports</a> -->
+                    <a href="#request-assessment">Book a Demo</a>
+                    <a href="#request-assessment">Contact Us</a>
+                </div>
+            </div>
+
+             <div class="footer-column">
+                <h4>Contact</h4>
+                  <div class="contact-item">
+                        <span class="contact-icon">📞</span>
+                        <a href="tel:+919822004143">+91 98220 04143</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <a href="mailto:info@brainomoto.com">info@brainomoto.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>Office no. 22B, Yogesh House, East Street, Camp, Pune</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">💬</span>
+                        <a href="https://wa.me/919822004143" target="_blank">WhatsApp Us</a>
+                    </div>
+            </div>
+
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Brainmoto. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/919822004143" target="_blank" class="whatsapp-float">💬</a>
+
+    <!-- MOBILE CTA BAR -->
+    <div class="mobile-cta-bar">
+        <a href="#request-assessment" class="btn btn-primary">Request Free Assessment</a>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Animate on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Tab functionality
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Testimonials carousel
+        let currentTestimonial = 0;
+        const track = document.getElementById('testimonials-track');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentTestimonial);
+            });
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % 3;
+            updateCarousel();
+        }
+
+        function previousTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + 3) % 3;
+            updateCarousel();
+        }
+
+        function goToTestimonial(index) {
+            currentTestimonial = index;
+            updateCarousel();
+        }
+
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                if (navMenu.style.display === 'flex') {
+                    navMenu.style.display = 'none';
+                } else {
+                    navMenu.style.display = 'flex';
+                    navMenu.style.flexDirection = 'column';
+                    navMenu.style.position = 'absolute';
+                    navMenu.style.top = '100%';
+                    navMenu.style.left = '0';
+                    navMenu.style.right = '0';
+                    navMenu.style.background = 'white';
+                    navMenu.style.padding = '1rem';
+                    navMenu.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+                }
+            });
+        }
+    </script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var form = document.getElementById("assessment-form");
+        var status = document.getElementById("form-status");
+        // We look for the button inside the form
+        var submitBtn = form.querySelector('button[type="submit"]');
+
+        async function handleSubmit(event) {
+            event.preventDefault();
+            console.log("Form submission started...");
+
+            var data = new FormData(event.target);
+            var originalBtnText = submitBtn.innerText;
+
+            // 1. Visual feedback
+            submitBtn.innerText = "Sending...";
+            submitBtn.disabled = true;
+
+            // 2. Send Data
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                console.log("Response received. Status:", response.status);
+                
+                if (response.ok) {
+                    // --- SUCCESS SCENARIO ---
+                    console.log("Success! Hiding form.");
+                    status.style.display = "block";
+                    form.reset();
+                    form.style.display = "none";
+                } else {
+                    // --- ERROR SCENARIO ---
+                    response.json().then(data => {
+                        console.log("Formspree Error:", data);
+                        if (data.errors) {
+                            status.innerText = data.errors.map(error => error.message).join(", ");
+                        } else {
+                            status.innerText = "Oops! There was a problem submitting your form";
+                        }
+                        // Styling for error
+                        status.style.backgroundColor = "#f8d7da";
+                        status.style.color = "#721c24";
+                        status.style.display = "block";
+                    });
+                }
+            }).catch(error => {
+                // --- NETWORK ERROR ---
+                console.error("Network Error:", error);
+                status.innerText = "Network error. Please check your connection.";
+                status.style.backgroundColor = "#f8d7da";
+                status.style.color = "#721c24";
+                status.style.display = "block";
+            }).finally(() => {
+                // If we didn't succeed (form is still visible), reset the button
+                // We check if the form is NOT display:none
+                if (form.style.display !== "none") {
+                    submitBtn.innerText = originalBtnText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        form.addEventListener("submit", handleSubmit);
+    });
+</script>
+</body>
+</html>
